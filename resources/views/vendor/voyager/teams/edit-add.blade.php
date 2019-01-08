@@ -51,7 +51,7 @@
                         @else
                         <div class="form-group @if($row->type == 'hidden') hidden @endif col-md-{{ isset($display_options->width) ? $display_options->width : 12 }}"
                             @if(isset($display_options->id)){{ "id=$display_options->id" }}@endif> {{ $row->slugify }}
-                            <label for="name">{{ $row->display_name }} @if($row->display_name == "URL przycisku")<span class="color: grey;">(Przykladowy link: https://www.google.pl/)</span> @endif</label>
+                            <label for="name">{{ $row->display_name }} @if($row->display_name == "URL przycisku" || $row->display_name == "Link przycisku")<span class="color: grey;">(Przykladowy link: https://www.google.pl/)</span> @endif</label>
     @include('voyager::multilingual.input-hidden-bread-edit-add') @if($row->type == 'relationship')
     @include('voyager::formfields.relationship', ['options' => $row->details]) @else {!! app('voyager')->formField($row,
                             $dataType, $dataTypeContent) !!} @endif @foreach (app('voyager')->afterFormFields($row, $dataType,
@@ -102,6 +102,7 @@
     </div>
 </div>
 <!-- End Delete File Modal -->
+
 
 
 
@@ -186,6 +187,7 @@
         });
 
 </script>
+
 
 
 

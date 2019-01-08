@@ -76,7 +76,7 @@
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container">
                     <div class="navbar-header">
-                        <a class="navbar-brand" href="index.html"><img src="assets/images/logo/logo.png"  alt="BEFIT logo"></a>
+                        <a class="navbar-brand" href="#"><img src="assets/images/logo/logo.png"  alt="BEFIT logo"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
                             aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
@@ -84,79 +84,35 @@
                     </div>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav ml-auto">
-                            <li class="nav-item dropdown active">
-                                <a class="nav-link " href="index.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  home<span class="sr-only">(current)</span>
-                                </a>
-                                <div class="dropdown-menu animation  slideUpIn">
-                                    <a class="dropdown-item" href="index.html">home1</a>
-                                    <a class="dropdown-item" href="home2.html">home2</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="about-us.html" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  about<span class="sr-only">(current)</span>
-                                </a>
-                                <div class="dropdown-menu animation  slideUpIn">
-                                    <a class="dropdown-item" href="about-us.html">about us</a>
-                                    <a class="dropdown-item" href="services.html">services</a>
-                                    <a class="dropdown-item" href="service-single.html">service single</a>
-                                    <a class="dropdown-item" href="trainers.html">trainers</a>
-                                </div>
-                            </li>
-                            <li class="nav-item dropdown">
+                            <li class="nav-item active">
                                 <a class="nav-link " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  pages<span class="sr-only">(current)</span>
+                                  Strona główna<span class="sr-only">(current)</span>
                                 </a>
-                                <div class="dropdown-menu animation  slideUpIn">
-                                    <a class="dropdown-item" href="pricing-plan.html">pricing-plan</a>
-                                    <a class="dropdown-item" href="contact.html">contact</a>
-                                    <a class="dropdown-item" href="contact-2.html">contact 2</a>
-                                    <a class="dropdown-item" href="error.html">404</a>
-                                </div>
+
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  classes<span class="sr-only">(current)</span>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="{{route('page.index')}}#kons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Konsultacje<span class="sr-only">(current)</span>
                                 </a>
-                                <div class="dropdown-menu animation  slideUpIn">
-                                    <a class="dropdown-item" href="single-class.html">single class</a>
-                                    <a class="dropdown-item" href="booking.html">booking</a>
-                                </div>
+
                             </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  shop<span class="sr-only">(current)</span>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="#eksperts" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Eksperci<span class="sr-only">(current)</span>
                                 </a>
-                                <div class="dropdown-menu animation  slideUpIn">
-                                    <a class="dropdown-item" href="shopping.html">shopping</a>
-                                    <a class="dropdown-item" href="single-product.html">single product</a>
-                                    <a class="dropdown-item" href="shopping-cart.html">shopping cart</a>
-                                    <a class="dropdown-item" href="checkout.html">checkout</a>
-                                </div>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="schedule.html">schedule</a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link " href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  blog<span class="sr-only">(current)</span>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="#spec" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Specjalizacje<span class="sr-only">(current)</span>
                                 </a>
-                                <div class="dropdown-menu animation  slideUpIn">
-                                    <a class="dropdown-item" href="blog.html">blog</a>
-                                    <a class="dropdown-item" href="blog-2.html">blog 2</a>
-                                    <a class="dropdown-item" href="blog-left.html">blog left</a>
-                                </div>
                             </li>
-                            <li class="nav-item d-none d-lg-inline">
-                                <div class="icon-menu">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-shopping-cart"></i></a></li>
-                                        <li>|</li>
-                                        <li><a href="#" class="search-btn search-box-btn"><i class="fa fa-search"></i></a></li>
-                                    </ul>
-                                </div>
+                            <li class="nav-item ">
+                                <a class="nav-link " href="#formSend" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Kontakt<span class="sr-only">(current)</span>
+                                </a>
                             </li>
+
+
                         </ul>
                     </div>
                 </div>
@@ -225,7 +181,7 @@
         <!--call to action-1 start-->
 
 
-        <div class="call-to-action1 pad90">
+        <div class="call-to-action1 pad90" id="kons">
             <div class="container">
                 <div class="row">
                     @foreach($consults as $consult)
@@ -257,7 +213,7 @@
 
 
         <!--pricing box start-->
-        <div class="product-area pad90">
+        <div class="product-area pad90" id="eksperts">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -273,7 +229,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="product-carousel">
-                            @foreach($teams as $member)
+                            @foreach($teams as $member) @if($member->image)
                             <div class="col-md-12">
                                 <div class="product-box">
                                     <div class="cart-box primary-overlay">
@@ -292,14 +248,14 @@
                                 </div>
 
                             </div>
-                            @endforeach
+                            @endif @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!--pricing box end-->
-        <div class="features-area pb90">
+        <div class="features-area pb90" id="spec">
             <div class="container">
                 <div class="col-md-12">
                     <div class="section-title text-center">
@@ -318,8 +274,8 @@
                             <div class="features-box text-center">
                                 @foreach($tile as $single)
                                 <div class="features-elements">
-                                    <a href="#"><i class="{{ $single->icon}}"></i></a>
-                                    <h4 class="mb20">{{ $single->title }}</h4>
+                                    <a href="#"><i class="{{ $single->icon ? $single->icon : "fas fa-question" }}"></i></a>
+                                    <h4 class="mb20">{{ $single->title ? $single->title : "specjalizacja" }}</h4>
                                     <p class="mb20">{{$single->body}}
                                     </p>
                                 </div>
@@ -467,8 +423,8 @@
                             <h4>location</h4>
                             <div class="ctc-content">
                                 <i class="fas fa-mobile-alt"></i>
-                                <p>Phone: {{ $info->phone}}
-                                    <br> Fax: {{ $info->fax}}</p>
+                                <p>Phone: {{ $info->phone ? $info->phone : "-"}}
+                                    <br> Fax: {{ $info->fax ? $info->fax : "-" }}</p>
                             </div>
                             @foreach($addresses as $location)
                             <div class="ctc-content">
@@ -846,7 +802,7 @@
                         marker = new google.maps.Marker({   
                             position: map.getCenter(),
                             animation: google.maps.Animation.BOUNCE,
-                            icon: image,
+                            icon: image ,
                             map: map
                         });
 
