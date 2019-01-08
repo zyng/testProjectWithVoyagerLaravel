@@ -12,6 +12,10 @@
 */
 
 Route::get('/', 'PageController@index')->name('page.index');
+Route::post('/send', 'SendEmailController@send');
+Route::resource('api/address', 'Api\AddressController');
+
+
 
 
 Route::group(['prefix' => 'admin'], function () {

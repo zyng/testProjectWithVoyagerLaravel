@@ -1,0 +1,111 @@
+    /*
+    Flaticon icon font: Flaticon
+    Creation date: 27/08/2018 12:59
+    */
+
+    @font-face {
+  font-family: "Flaticon";
+  src: url("./Flaticon.eot");
+  src: url("./Flaticon.eot?#iefix") format("embedded-opentype"),
+       url("./Flaticon.woff") format("woff"),
+       url("./Flaticon.ttf") format("truetype"),
+       url("./Flaticon.svg#Flaticon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+  @font-face {
+    font-family: "Flaticon";
+    src: url("./Flaticon.svg#Flaticon") format("svg");
+  }
+}
+
+    .fi:before{
+        display: inline-block;
+  font-family: "Flaticon";
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  line-height: 1;
+  text-decoration: inherit;
+  text-rendering: optimizeLegibility;
+  text-transform: none;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-smoothing: antialiased;
+    }
+
+    .flaticon-shield:before { content: "\f100"; }
+.flaticon-wheelchair:before { content: "\f101"; }
+.flaticon-first-aid-kit:before { content: "\f102"; }
+.flaticon-doctor:before { content: "\f103"; }
+.flaticon-nurse:before { content: "\f104"; }
+.flaticon-vaccine:before { content: "\f105"; }
+.flaticon-stethoscope:before { content: "\f106"; }
+.flaticon-heart:before { content: "\f107"; }
+.flaticon-medical-result:before { content: "\f108"; }
+.flaticon-blood-donation:before { content: "\f109"; }
+.flaticon-blood-donation-1:before { content: "\f10a"; }
+.flaticon-massage:before { content: "\f10b"; }
+.flaticon-depilation:before { content: "\f10c"; }
+.flaticon-massage-1:before { content: "\f10d"; }
+.flaticon-cream:before { content: "\f10e"; }
+.flaticon-stones:before { content: "\f10f"; }
+.flaticon-essential-oil:before { content: "\f110"; }
+.flaticon-stones-1:before { content: "\f111"; }
+.flaticon-treatments:before { content: "\f112"; }
+.flaticon-massage-2:before { content: "\f113"; }
+.flaticon-spa:before { content: "\f114"; }
+.flaticon-cream-1:before { content: "\f115"; }
+.flaticon-spa-1:before { content: "\f116"; }
+.flaticon-spa-2:before { content: "\f117"; }
+.flaticon-phone-call:before { content: "\f118"; }
+.flaticon-placeholder:before { content: "\f119"; }
+.flaticon-map:before { content: "\f11a"; }
+.flaticon-worldwide:before { content: "\f11b"; }
+.flaticon-map-location:before { content: "\f11c"; }
+.flaticon-email:before { content: "\f11d"; }
+.flaticon-mail:before { content: "\f11e"; }
+.flaticon-appointment:before { content: "\f11f"; }
+.flaticon-calendar:before { content: "\f120"; }
+.flaticon-facebook-logo:before { content: "\f121"; }
+.flaticon-instagram:before { content: "\f122"; }
+.flaticon-linkedin-logo:before { content: "\f123"; }
+    
+    $font-Flaticon-shield: "\f100";
+    $font-Flaticon-wheelchair: "\f101";
+    $font-Flaticon-first-aid-kit: "\f102";
+    $font-Flaticon-doctor: "\f103";
+    $font-Flaticon-nurse: "\f104";
+    $font-Flaticon-vaccine: "\f105";
+    $font-Flaticon-stethoscope: "\f106";
+    $font-Flaticon-heart: "\f107";
+    $font-Flaticon-medical-result: "\f108";
+    $font-Flaticon-blood-donation: "\f109";
+    $font-Flaticon-blood-donation-1: "\f10a";
+    $font-Flaticon-massage: "\f10b";
+    $font-Flaticon-depilation: "\f10c";
+    $font-Flaticon-massage-1: "\f10d";
+    $font-Flaticon-cream: "\f10e";
+    $font-Flaticon-stones: "\f10f";
+    $font-Flaticon-essential-oil: "\f110";
+    $font-Flaticon-stones-1: "\f111";
+    $font-Flaticon-treatments: "\f112";
+    $font-Flaticon-massage-2: "\f113";
+    $font-Flaticon-spa: "\f114";
+    $font-Flaticon-cream-1: "\f115";
+    $font-Flaticon-spa-1: "\f116";
+    $font-Flaticon-spa-2: "\f117";
+    $font-Flaticon-phone-call: "\f118";
+    $font-Flaticon-placeholder: "\f119";
+    $font-Flaticon-map: "\f11a";
+    $font-Flaticon-worldwide: "\f11b";
+    $font-Flaticon-map-location: "\f11c";
+    $font-Flaticon-email: "\f11d";
+    $font-Flaticon-mail: "\f11e";
+    $font-Flaticon-appointment: "\f11f";
+    $font-Flaticon-calendar: "\f120";
+    $font-Flaticon-facebook-logo: "\f121";
+    $font-Flaticon-instagram: "\f122";
+    $font-Flaticon-linkedin-logo: "\f123";

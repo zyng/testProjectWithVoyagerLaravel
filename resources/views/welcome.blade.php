@@ -9,6 +9,12 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
+
+    <link rel="stylesheet" href="{{asset('iconpicker/css/fontawesome-iconpicker.css')}}">
+    <link rel="stylesheet" href="{{asset( '/flaticon/medical/font/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('/fontawesome/css/all.css')}}">
+    <link rel="stylesheet" href="{{asset('/flaticon/medical2/medinova-font-icons.css')}}">
+    <link rel="stylesheet" href="{{asset('/css/customFlaticon.css')}}">
     <!-- Favicons -->
     <link rel="shortcut icon" href="assets/favicon/favicon.ico">
     <link rel="apple-touch-icon" href="assets/favicon/apple-icon-57x57.png">
@@ -39,6 +45,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <!--Responsive Css-->
     <link rel="stylesheet" href="assets/css/responsive.css">
+    <link rel="stylesheet" href="css/fontawesome.css">
     <!--Modernizr Css-->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -217,28 +224,31 @@
 
 
         <!--call to action-1 start-->
+
+
         <div class="call-to-action1 pad90">
             <div class="container">
                 <div class="row">
+                    @foreach($consults as $consult)
                     <div class="col-lg-6">
                         <div class="cta-img">
-                            <img src="assets/images/call-to-action/cta.jpg" alt="girl-img">
+                            <img src="{{ Voyager::image($consult->image) }}" alt="">
                         </div>
                     </div>
                     <!-- /.col -->
                     <div class="col-lg-6">
                         <div class="cta-box">
-                            <h4 class="sub-title mb30">Joined Today Get The Best </h4>
-                            <h5 class="title mb30">Membership Offer Of the year </h5>
-                            <p class="mb30">Decore quidam bonorum vis eu, omnium instructior disputationi pro ei. An decore omittam duo,
-                                sed noluisse petentium instructior ad, pro no vidit error maiestatis. Ut qui errem quidam
-                                feugiat, ea eum vero mutat aliquip, ne erat postulant argumentum vim. Aliquip </p>
+                            <h4 class="sub-title mb30">{{$consult->title}} </h4>
+                            <h5 class="title mb30">{{$consult->subtitle}} </h5>
+                            <p class="mb30">{{$consult->body}} </p>
                             <div class="bttn">
-                                <button type="submit" class="btn active btn-primary">sign up</button>
+                                <a href="{{ $consult->btnURL}} " type="submit" class="btn active btn-primary">{{$consult->btnTitle}}</a>
                             </div>
                         </div>
                     </div>
                     <!-- /.col -->
+                    @endforeach
+
                 </div>
                 <!-- /.row -->
             </div>
@@ -256,152 +266,68 @@
                             <div class="title-bar full-width mb20">
                                 <img src="assets/images/logo/ttl-bar.png" alt="title-img">
                             </div>
-                            <h3>special products</h3>
-                            <p>look your best feel even better</p>
+                            <h3>Nasz zespoł</h3>
+                            <p>składa się z samych profesjonalistów</p>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                         <div class="product-carousel">
+                            @foreach($teams as $member)
                             <div class="col-md-12">
                                 <div class="product-box">
                                     <div class="cart-box primary-overlay">
                                         <div class="cart-img full-width">
-                                            <a href="assets/images/price/big1.jpg">
-                                                <img src="assets/images/price/1.jpg"  alt="price img"><i class=" ovrlay fa fa-search"></i></a>
+                                            <a href="{{ Voyager::image($member->image) }}">
+                                                <img src="{{ Voyager::image($member->image) }}"  alt="price img" style="height: 300px;object-fit: cover;"><i class=" ovrlay fa fa-search"></i></a>
                                         </div>
                                         <div class="cart-element">
-                                            <a href="#">quick look</a>
+                                            <a href="{{$member->btnURL}}">{{$member->btnTitle}}</a>
                                             <i class=" fa fa-heart"></i>
                                         </div>
                                     </div>
                                     <div class="cart-dtl">
-                                        <h4>Muscle Gain<span>£85.00</span></h4>
-                                        <div class="add-cart">
-                                            <a href="#">add to cart</a>
-                                        </div>
+                                        <h4>{{ $member->name }}</h4>
                                     </div>
                                 </div>
+
                             </div>
-                            <div class="col-md-12">
-                                <div class="product-box">
-                                    <div class="cart-box primary-overlay">
-                                        <div class="cart-img full-width">
-                                            <a href="assets/images/price/big2.jpg">
-                                               <img src="assets/images/price/2.jpg"  alt="price img"><i class=" ovrlay fa fa-search"></i></a>
-                                        </div>
-                                        <div class="cart-element">
-                                            <a href="#">quick look</a>
-                                            <i class="fa fa-heart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="cart-dtl">
-                                        <h4>supplements <span>£75.00</span></h4>
-                                        <div class="add-cart">
-                                            <a href="#">add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="product-box">
-                                    <div class="cart-box primary-overlay">
-                                        <div class="cart-img full-width">
-                                            <a href="assets/images/price/big3.jpg">
-                                                <img src="assets/images/price/3.jpg"  alt="price img"><i class=" ovrlay fa fa-search"></i></a>
-                                        </div>
-                                        <div class="cart-element">
-                                            <a href="#">quick look</a>
-                                            <i class="fa fa-heart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="cart-dtl">
-                                        <h4>supplements <span>£95.00</span></h4>
-                                        <div class="add-cart">
-                                            <a href="#">add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="product-box">
-                                    <div class="cart-box primary-overlay">
-                                        <div class="cart-img full-width">
-                                            <a href="assets/images/price/big4.jpg">
-                                                <img src="assets/images/price/4.jpg"  alt="price img"><i class=" ovrlay fa fa-search"></i></a>
-                                        </div>
-                                        <div class="cart-element">
-                                            <a href="#">quick look</a>
-                                            <i class="fa fa-heart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="cart-dtl">
-                                        <h4>Muscle Gain<span>£85.00</span></h4>
-                                        <div class="add-cart">
-                                            <a href="#">add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="product-box">
-                                    <div class="cart-box primary-overlay">
-                                        <div class="cart-img full-width">
-                                            <a href="assets/images/price/big3.jpg">
-                                                <img src="assets/images/price/3.jpg"  alt="price img"><i class=" ovrlay fa fa-search"></i></a>
-                                        </div>
-                                        <div class="cart-element">
-                                            <a href="#">quick look</a>
-                                            <i class="fa fa-heart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="cart-dtl">
-                                        <h4>supplements <span>£95.00</span></h4>
-                                        <div class="add-cart">
-                                            <a href="#">add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="product-box">
-                                    <div class="cart-box primary-overlay">
-                                        <div class="cart-img full-width">
-                                            <a href="assets/images/price/big4.jpg">
-                                                <img src="assets/images/price/4.jpg"  alt="price img"><i class=" ovrlay fa fa-search"></i></a>
-                                        </div>
-                                        <div class="cart-element">
-                                            <a href="#">quick look</a>
-                                            <i class="fa fa-heart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="cart-dtl">
-                                        <h4>Muscle Gain<span>£85.00</span></h4>
-                                        <div class="add-cart">
-                                            <a href="#">add to cart</a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
             </div>
         </div>
         <!--pricing box end-->
-
-        <!--call to action start-->
-        <div class="call-to-action pad90">
+        <div class="features-area pb90">
             <div class="container">
-                <div class="row">
-                    <div class="col-md-9 col-sm-12">
-                        <h4>Choose Your Exercise and Start Your Training With Us.</h4>
+                <div class="col-md-12">
+                    <div class="section-title text-center">
+                        <div class="title-bar full-width mb20">
+                            <img src="assets/images/logo/ttl-bar.png" alt="title-img">
+                        </div>
+                        <h3>Nasze specjalności</h3>
+                        <p>szereg specjalnosci</p>
                     </div>
-                    <!-- /.col -->
-                    <div class="col-md-3 col-sm-12">
-                        <div class=" bttn">
-                            <button type="submit" class="btn btn-primary" id="book-submit">Book now</button>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="features-body" style="transform: none;">
+
+                            @foreach($tiles->chunk(2) as $tile)
+                            <div class="features-box text-center">
+                                @foreach($tile as $single)
+                                <div class="features-elements">
+                                    <a href="#"><i class="{{ $single->icon}}"></i></a>
+                                    <h4 class="mb20">{{ $single->title }}</h4>
+                                    <p class="mb20">{{$single->body}}
+                                    </p>
+                                </div>
+                                @endforeach
+                            </div>
+                            @endforeach
+
                         </div>
                     </div>
                     <!-- /.col -->
@@ -410,9 +336,30 @@
             </div>
             <!-- /.container -->
         </div>
+        <!--call to action start-->
+        <div class="call-to-action pad60">
+            <div class="container">
+                @foreach($infos as $info)
+                <div class="row">
+                    <div class="col-md-9 col-sm-12">
+                        <h4 style="font-size: 20px;">{{ $info->info}}</h4>
+                    </div>
+                    <!-- /.col -->
+                    <div class="col-md-3 col-sm-12">
+                        <div class=" bttn">
+                            <a href="{{ $info->btnURL }}" type="submit" class="btn btn-primary" id="book-submit">{{ $info->btnTitle}}</a>
+                        </div>
+                    </div>
+                    <!-- /.col -->
+                </div>
+                @endforeach
+                <!-- /.row -->
+            </div>
+            <!-- /.container -->
+        </div>
         <!--call to action end-->
         <!--contact-area start-->
-        <div class="contact-area pad90">
+        <div class="contact-area pad90" id="formSend">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -431,43 +378,72 @@
                     <div class="col-md-8">
                         <div class="contact-form mt20">
                             <div class="appointment-schedule">
-                                <form method="post" id="contact-form" data-toggle="validator" role="form" class="appointment-form">
-                                    @csrf
+                                @if (count($errors) > 0)
+                                <div class="alert alert-danger">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <ul class="error-area">
+                                        @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                                @endif @if ($message = Session::get('success'))
+
+                                <div class="alert alert-success alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                                @endif
+                                <ul style="color: #000;" id="error-area"></ul>
+                                <form method="post" action="{{ action('SendEmailController@send') }}" id="contact-form" data-toggle="validator" role="form"
+                                    class="appointment-form">
+                                    {{ csrf_field() }}
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input id="inputName" type="text" placeholder="Name" class="form-control" required data-error="Enter your name">
-                                                <div class="help-block with-errors"></div>
+                                                <input data-error-message="Wprowadź prawidłową nazwę" name="name" id="inputName" type="text" placeholder="Name" class="form-control"
+                                                    required>
+
                                             </div>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input id="inputEmail" type="text" placeholder="Email" class="form-control" required data-error="Enter your email">
-                                                <div class="help-block with-errors"></div>
+                                                <input data-error-message="Wprowadź prawidłowy email" name="email" id="inputEmail" type="text" placeholder="Email" class="form-control"
+                                                    required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <input id="inputSubject" type="text" placeholder="Subject" class="form-control" required data-error="Enter your subject">
-                                                <div class="help-block with-errors"></div>
+                                                <input data-error-message="Wprowadź prawidłową nazwę tematu" name="subject" id="inputSubject" type="text" placeholder="Subject"
+                                                    class="form-control" required>
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="form-group">
-                                                <textarea class="form-control" name="Message" id="inputMessage" cols="10" rows="5" placeholder="Your comment text here" required
-                                                    data-error="Enter your message with details"></textarea>
-                                                <div class="help-block with-errors"></div>
+                                                <input data-error-message="Wprowadź prawidłowy nr telefonu" name="phone" id="inputPhone" type="text" placeholder="Phone"
+                                                    class="form-control" required>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea data-error-message="Wprowadź prawidłową treść" class="form-control" name="message" id="inputMessage" cols="10"
+                                                    rows="5" placeholder="Your comment text here" required></textarea>
+
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="bttn full-width">
-                                                <button type="submit" class="btn active full-width btn-primary">send</button>
+                                                <button type="submit" id="submitForm" class="btn active full-width btn-primary">send</button>
                                             </div>
                                         </div>
                                         <!-- /.col -->
@@ -475,7 +451,9 @@
                                     <!-- /.row -->
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <div id="msgalert" class="hidden"></div>
+                                            <div id="msgalert" class="">
+
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
@@ -483,44 +461,40 @@
                         </div>
                     </div>
                     <!-- /.col -->
+
                     <div class="col-md-4">
+                        @foreach($companyInfo as $info)
                         <div class="location mt20">
                             <h4>location</h4>
                             <div class="ctc-content">
-                                <i class="fa fa-mobile"></i>
-                                <p>Phone: 001 234 456 789
-                                    <br> Fax: 02 9835 0247</p>
+                                <i class="fas fa-mobile-alt"></i>
+                                <p>Phone: {{ $info->phone}}
+                                    <br> Fax: {{ $info->fax}}</p>
                             </div>
+                            @foreach($addresses as $location)
                             <div class="ctc-content">
-                                <i class="fa fa-location-arrow"></i>
-                                <p>3481 Rabana Place, Beverly
-                                    <br> Hills CA 2090</p>
+                                <i class="fas fa-location-arrow"></i>
+                                <p>{{ $location->street}}
+                                    <br> {{$location->city.' '.$location->zipCode}}</p>
                             </div>
+                            @endforeach
                             <div class="ctc-content">
-                                <i class="fa fa-map-marker"></i>
-                                <p>info@mail.com
-                                    <br>support@mail.com</p>
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>{{$info->email}}
+                                    <br>{{$info->website}}</p>
                             </div>
                         </div>
+                        @endforeach
                         <hr>
                         <div class="opening-time pt20">
                             <h4>opening time</h4>
                             <ul>
+                                @foreach($workTime as $workDay)
                                 <li>
-                                    <p>Tuesday : 10:00 am – 7:00 pm</p>
+                                    <p>{{$workDay->day}} : {{$workDay->startTime}} – {{$workDay->endTime}}</p>
                                 </li>
-                                <li>
-                                    <p>Wednesday : 11:00 am – 8:00 pm</p>
-                                </li>
-                                <li>
-                                    <p>Thursday : 11:00 am – 8:00 pm</p>
-                                </li>
-                                <li>
-                                    <p>Friday : 9:00 am – 6:00 pm</p>
-                                </li>
-                                <li>
-                                    <p>Saturday : 9:00 am – 6:00 pm</p>
-                                </li>
+                                @endforeach
+
                             </ul>
                         </div>
                     </div>
@@ -531,101 +505,12 @@
         </div>
         <!--contact-area end-->
 
+
+
         <div class="google-map">
             <div id="map" style="width: 100%; height: 450px;"></div>
         </div>
         <footer>
-            <section class="footer-area bg3 parallax overlay pt90">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-12 ">
-                            <div class="footer-logo footer-content">
-                                <img src="assets/images/logo/logo2.png" alt="footer logo">
-                            </div>
-                            <p>Lorem ipsum dolor sit amet, ei ubique fastidii vim. Elitr feugait complectitur eu pro, sea audire
-                                ponderum eleifend cu. Vim at fuisset.</p>
-                            <div class="add-info">
-                                <p><a href="#"><i class="fa fa-map-marker" aria-hidden="true"></i></a>23 New Design Street,
-                                    Melbourne
-                                </p>
-                                <p><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a>befitgym@gmail.com</p>
-                                <p class="mb-0"><a href="#"><i class="fa fa-mobile" aria-hidden="true"></i></a>+880-123-456-7890</p>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-3 col-sm-12">
-                            <div class="news-info ftr-algn">
-                                <div class="footer-title footer-content">
-                                    <h3>news letter</h3>
-                                </div>
-                                <p> sign up for our mailing list to get latest updates and offers</p>
-                                <div class="subscribe">
-                                    <form action="#">
-                                        <input class="name" type="text" placeholder="Enter your email">
-                                    </form>
-                                    <a href="#"><i class="fa fa-long-arrow-right" aria-hidden="true"></i></a>
-                                </div>
-                                <div class="footer-social">
-                                    <ul>
-                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
-                                        <li><a href=""><i class="fa fa-twitter"></i></a></li>
-                                        <li><a href=""><i class="fa fa-youtube"></i></a></li>
-                                        <li><a href=""><i class="fa fa-pinterest"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-3 col-sm-12">
-                            <div class="news-info ftr-algn">
-                                <div class="footer-title footer-content">
-                                    <h3>latest post</h3>
-                                </div>
-                                <div class="news-detail nws-bar">
-                                    <img src="assets/images/footer/1.jpg" alt="">
-                                    <p>Set yourself the challenge of doing the bare minimum.</p>
-                                </div>
-                                <div class="news-detail">
-                                    <img src="assets/images/footer/2.jpg" alt="">
-                                    <p>Body fat percentage: what does it really mean?</p>
-                                </div>
-                                <div class="news-detail">
-                                    <img src="assets/images/footer/3.jpg" alt="">
-                                    <p>This treatment sounded just what I was looking for.</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                        <div class="col-md-3 col-sm-12">
-                            <div class="news-info open-hrs ftr-algn">
-                                <div class="footer-title footer-content">
-                                    <h3>opening hours</h3>
-                                </div>
-                                <ul>
-                                    <li>Monday <span>07:00 - 17:00</span></li>
-                                    <li>tuesday <span>07:00 - 17:00</span></li>
-                                    <li>wednesday <span>07:00 - 17:00</span></li>
-                                    <li>thursday <span>07:00 - 17:00</span></li>
-                                    <li>friday <span>07:00 - 17:00</span></li>
-                                    <li>saturday <span>07:00 - 17:00</span></li>
-                                </ul>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-                    <div class="row">
-                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                            <div class="instra pad60">
-                                <h4><span>instragram</span></h4>
-                            </div>
-                        </div>
-                        <!-- /.col -->
-                    </div>
-                    <!-- /.row -->
-                </div>
-                <!--/.container-->
-            </section>
 
             <div class="copyright pad30">
                 <h4>Copyright © <span>iThemeslab.</span> All Rights Reserved</h4>
@@ -732,200 +617,340 @@
 
     <!-- template main js file -->
     <script src="assets/js/main.js"></script>
+    <script src="assets/js/fontawesome-iconpicker.min.js"></script>
     <script>
-        function initMap() {
+        $(document).ready(function(){
+                
+            var address;
+                $.ajax({
+                    url: "/api/address",
+                    method: 'get',
+                    
+                    success: function (data) {
+                       address = data;
+                        
+                        var city = address[0].city;
+                        var street = address[0].street;
+                        var icon = `/storage/${address[0].pinIcon}`;
 
-            var map = new google.maps.Map(document.getElementById('map'), {
-                center: {
-                    lat: 23.810332,
-                    lng: 90.412518
-                },
-                zoom: 10,
-                styles: [{
-                        "featureType": "water",
-                        "elementType": "all",
-                        "stylers": [{
-                                "hue": "#7fc8ed"
-                            },
-                            {
-                                "saturation": 55
-                            },
-                            {
-                                "lightness": -6
-                            },
-                            {
-                                "visibility": "on"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "water",
-                        "elementType": "labels",
-                        "stylers": [{
-                                "hue": "#7fc8ed"
-                            },
-                            {
-                                "saturation": 55
-                            },
-                            {
-                                "lightness": -6
-                            },
-                            {
-                                "visibility": "off"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "poi.park",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "hue": "#83cead"
-                            },
-                            {
-                                "saturation": 1
-                            },
-                            {
-                                "lightness": -15
-                            },
-                            {
-                                "visibility": "on"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "landscape",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "hue": "#f3f4f4"
-                            },
-                            {
-                                "saturation": -84
-                            },
-                            {
-                                "lightness": 59
-                            },
-                            {
-                                "visibility": "on"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "landscape",
-                        "elementType": "labels",
-                        "stylers": [{
-                                "hue": "#ffffff"
-                            },
-                            {
-                                "saturation": -100
-                            },
-                            {
-                                "lightness": 100
-                            },
-                            {
-                                "visibility": "off"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "hue": "#ffffff"
-                            },
-                            {
-                                "saturation": -100
-                            },
-                            {
-                                "lightness": 100
-                            },
-                            {
-                                "visibility": "on"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road",
-                        "elementType": "labels",
-                        "stylers": [{
-                                "hue": "#bbbbbb"
-                            },
-                            {
-                                "saturation": -100
-                            },
-                            {
-                                "lightness": 26
-                            },
-                            {
-                                "visibility": "on"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.arterial",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "hue": "#ffcc00"
-                            },
-                            {
-                                "saturation": 100
-                            },
-                            {
-                                "lightness": -35
-                            },
-                            {
-                                "visibility": "simplified"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "road.highway",
-                        "elementType": "geometry",
-                        "stylers": [{
-                                "hue": "#ffcc00"
-                            },
-                            {
-                                "saturation": 100
-                            },
-                            {
-                                "lightness": -22
-                            },
-                            {
-                                "visibility": "on"
-                            }
-                        ]
-                    },
-                    {
-                        "featureType": "poi.school",
-                        "elementType": "all",
-                        "stylers": [{
-                                "hue": "#d7e4e4"
-                            },
-                            {
-                                "saturation": -60
-                            },
-                            {
-                                "lightness": 23
-                            },
-                            {
-                                "visibility": "on"
-                            }
-                        ]
+                      
+                       console.log(city);
+                       console.log(street);
+                       console.log(icon);
+                       google.maps.event.addDomListener(window, 'load', () => initMap(city, street, icon));
                     }
-                ]
-            });
-            var marker = new google.maps.Marker({
-                position: map.getCenter(),
-                animation: google.maps.Animation.BOUNCE,
-                icon: 'assets/images/icon.png',
-                map: map
-            });
+                }); 
+        })
+
+
+        function initMap(city, street, icon) {
+         
+
+                var address = `${city}, ${street}`;
+                var latitude, longitude, map, marker;
+                var style =    [{
+                                    "featureType": "water",
+                                    "elementType": "all",
+                                    "stylers": [{
+                                            "hue": "#7fc8ed"
+                                        },
+                                        {
+                                            "saturation": 55
+                                        },
+                                        {
+                                            "lightness": -6
+                                        },
+                                        {
+                                            "visibility": "on"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "water",
+                                    "elementType": "labels",
+                                    "stylers": [{
+                                            "hue": "#7fc8ed"
+                                        },
+                                        {
+                                            "saturation": 55
+                                        },
+                                        {
+                                            "lightness": -6
+                                        },
+                                        {
+                                            "visibility": "off"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "poi.park",
+                                    "elementType": "geometry",
+                                    "stylers": [{
+                                            "hue": "#83cead"
+                                        },
+                                        {
+                                            "saturation": 1
+                                        },
+                                        {
+                                            "lightness": -15
+                                        },
+                                        {
+                                            "visibility": "on"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "landscape",
+                                    "elementType": "geometry",
+                                    "stylers": [{
+                                            "hue": "#f3f4f4"
+                                        },
+                                        {
+                                            "saturation": -84
+                                        },
+                                        {
+                                            "lightness": 59
+                                        },
+                                        {
+                                            "visibility": "on"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "landscape",
+                                    "elementType": "labels",
+                                    "stylers": [{
+                                            "hue": "#ffffff"
+                                        },
+                                        {
+                                            "saturation": -100
+                                        },
+                                        {
+                                            "lightness": 100
+                                        },
+                                        {
+                                            "visibility": "off"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "road",
+                                    "elementType": "geometry",
+                                    "stylers": [{
+                                            "hue": "#ffffff"
+                                        },
+                                        {
+                                            "saturation": -100
+                                        },
+                                        {
+                                            "lightness": 100
+                                        },
+                                        {
+                                            "visibility": "on"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "road",
+                                    "elementType": "labels",
+                                    "stylers": [{
+                                            "hue": "#bbbbbb"
+                                        },
+                                        {
+                                            "saturation": -100
+                                        },
+                                        {
+                                            "lightness": 26
+                                        },
+                                        {
+                                            "visibility": "on"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "road.arterial",
+                                    "elementType": "geometry",
+                                    "stylers": [{
+                                            "hue": "#ffcc00"
+                                        },
+                                        {
+                                            "saturation": 100
+                                        },
+                                        {
+                                            "lightness": -35
+                                        },
+                                        {
+                                            "visibility": "simplified"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "road.highway",
+                                    "elementType": "geometry",
+                                    "stylers": [{
+                                            "hue": "#ffcc00"
+                                        },
+                                        {
+                                            "saturation": 100
+                                        },
+                                        {
+                                            "lightness": -22
+                                        },
+                                        {
+                                            "visibility": "on"
+                                        }
+                                    ]
+                                },
+                                {
+                                    "featureType": "poi.school",
+                                    "elementType": "all",
+                                    "stylers": [{
+                                            "hue": "#d7e4e4"
+                                        },
+                                        {
+                                            "saturation": -60
+                                        },
+                                        {
+                                            "lightness": 23
+                                        },
+                                        {
+                                            "visibility": "on"
+                                        }
+                                    ]
+                                }
+                            ]                     
+
+                
+
+                
+                var geocoder =  new google.maps.Geocoder();
+                geocoder.geocode( { 'address': address}, function(results, status) {
+                    if (status == google.maps.GeocoderStatus.OK) {
+                        latitude = results[0].geometry.location.lat();
+                        longitude = results[0].geometry.location.lng();
+
+                        map = new google.maps.Map(document.getElementById('map'), {
+                            center: {
+                                lat: latitude,
+                                lng: longitude
+                            },
+
+        
+                            zoom: 10,
+                            styles: style
+                        });
+
+                        var image = {
+                            url: icon,
+                         
+                        }
+                        marker = new google.maps.Marker({   
+                            position: map.getCenter(),
+                            animation: google.maps.Animation.BOUNCE,
+                            icon: image,
+                            map: map
+                        });
+
+                  
+                    } else {
+                        map = new google.maps.Map(document.getElementById('map'), {
+                            center: {
+                                lat: 54.366607,
+                                lng: 18.565742
+                            },
+         
+                            zoom: 9,
+                            styles: style
+                        });
+                    }
+                });
+
+            
+                
+
+
+           
         }
-
-
-        google.maps.event.addDomListener(window, 'load', initialize);
     </script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDf64CyWpOBCEocXjocJL_wZiW82hNtbTA&callback=initMap" async
-        defer></script>
+        defer>
+
+    </script>
+
+    <script>
+        $(document).ready(function(){
+
+            
+
+            var btnForm = $('#submitForm');
+            function isValidEmailAddress(emailAddress) {
+                var pattern = new RegExp(/^[+a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/i);
+                // alert( pattern.test(emailAddress) );
+                return pattern.test(emailAddress);
+            };
+
+            var errorBox = $('#error-area');
+
+            $(btnForm).click(function(e){
+
+                var valid = true;
+                
+                $(errorBox).empty();
+
+                var email = $("#inputEmail").val();
+
+                if($("#inputName").val() === "" || $("#inputEmail").val() === "" || $("#inputSubject").val() === "" || $("#inputPhone").val() === "" || $("#inputMessage").val() === "" || !isValidEmailAddress(email)) {
+                    valid = false; 
+                }
+                
+                let errorMessage = '';
+                if($("#inputName").val() === "") {
+                    errorMessage = $("#inputName").data('error-message');
+                    const li = document.createElement('li');
+                    li.textContent = errorMessage;
+                    console.log(li);
+                    $('#error-area').append(li);
+                }
+                if($("#inputEmail").val() === "" || !isValidEmailAddress(email)) {
+                    errorMessage = $("#inputEmail").data('error-message');
+                    const li = document.createElement('li');
+                    li.textContent = errorMessage;
+                    $(errorBox).append(li);
+                }
+                if($("#inputSubject").val() === "") {
+                    errorMessage = $("#inputSubject").data('error-message');
+                    const li = document.createElement('li');
+                    li.textContent = errorMessage;
+                    $(errorBox).append(li);
+                }
+                if($("#inputPhone").val() === "") {
+                    errorMessage = $("#inputPhone").data('error-message');
+                    const li = document.createElement('li');
+                    li.textContent = errorMessage;
+                    $(errorBox).append(li);
+                }
+                if($("#inputMessage").val() === "") {
+                    errorMessage = $("#inputMessage").data('error-message');
+                    const li = document.createElement('li');
+                    li.textContent = errorMessage;
+                    $(errorBox).append(li);
+                }
+
+
+
+                if(valid) {
+                    return true;
+                } else {
+                    e.preventDefault();
+                }
+
+                
+            })
+
+
+        });
+    </script>
+
 </body>
 
 </html>

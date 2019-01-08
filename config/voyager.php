@@ -164,7 +164,12 @@ return [
         ],
 
         'widgets' => [
-
+            'TCG\\Voyager\\Widgets\\UserDimmer',
+            'TCG\\Voyager\\Widgets\\PostDimmer',
+            'TCG\\Voyager\\Widgets\\PageDimmer',
+            'App\\Widgets\\BannersTable',
+            'App\\Widgets\\TeamsTable',
+            
         ],
 
     ],
@@ -207,10 +212,23 @@ return [
 
     // Here you can specify additional assets you would like to be included in the master.blade
     'additional_css' => [
+        // '/css/fontawesome-iconpicker.min.css',
+        // '/css/fontawesome.css',
+        // '/assets/css/vendor/flaticon.css',
+        // '/assets/fonts/fontmedi/medinova-font-icons.css',
+        '/iconpicker/css/fontawesome-iconpicker.css',
+        '/fontawesome/css/all.css',
+        '/flaticon/medical/font/flaticon.css',
+        '/flaticon/medical2/medinova-font-icons.css',
+        '/css/customFlaticon.css',
+       
         //'css/custom.css',
     ],
 
     'additional_js' => [
+        '/iconpicker/js/fontawesome-iconpicker.js',
+        '/js/custom.js',
+        // '/assets/js/fontawesome-iconpicker.min.js',
         //'js/custom.js',
     ],
 
