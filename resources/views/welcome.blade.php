@@ -173,7 +173,7 @@
                     <ul>
                         <!-- SLIDE  -->
 
-                        @foreach($banners as $banner)
+                        @foreach($banners as $banner) @if($banner->image)
                         <li data-index="rs-{{$loop->iteration}}" data-transition="slideoververtical">
                             <!-- MAIN IMAGE -->
                             <img src="{{ Voyager::image($banner->image) }}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
@@ -211,8 +211,7 @@
                                 data-responsive_offset="on" data-responsive="off" style="z-index: 8; white-space: nowrap; font-size: 18px; line-height: 15px; color: rgba(255, 255, 255, 1.00);font-family:'Roboto Condensed', sans-serif;text-transform: uppercase;">{{ $banner->btnTitle }}
                             </a>
                         </li>
-
-                        @endforeach
+                        @endif @endforeach
 
                     </ul>
                 </div>
