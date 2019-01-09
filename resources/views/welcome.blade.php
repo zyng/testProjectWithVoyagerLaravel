@@ -251,6 +251,7 @@
 
 
         <!--pricing box start-->
+        @if($teams->isNotEmpty())
         <div class="product-area pad90" id="eksperts">
             <div class="container">
                 <div class="row">
@@ -292,7 +293,9 @@
                 </div>
             </div>
         </div>
+        @endif
         <!--pricing box end-->
+        @if($tiles->isNotEmpty())
         <div class="features-area pb90" id="spec">
             <div class="container">
                 <div class="col-md-12">
@@ -329,6 +332,7 @@
             </div>
             <!-- /.container -->
         </div>
+        @endif
         <!--call to action start-->
         <div class="call-to-action pad60">
             <div class="container">
