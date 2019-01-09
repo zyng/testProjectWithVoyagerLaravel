@@ -636,10 +636,6 @@
                         var street = address[0].street;
                         var icon = `/storage/${address[0].pinIcon}`;
 
-                      
-                       console.log(city);
-                       console.log(street);
-                       console.log(icon);
                        google.maps.event.addDomListener(window, 'load', () => initMap(city, street, icon));
                     }
                 }); 
@@ -844,7 +840,9 @@
                         });
 
                         var image = {
+                            size: new google.maps.Size(64, 64),
                             url: icon,
+
                          
                         }
                         marker = new google.maps.Marker({   
