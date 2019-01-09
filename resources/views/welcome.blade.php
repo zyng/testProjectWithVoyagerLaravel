@@ -141,12 +141,17 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#kons">Konsultacje</a>
                             </li>
+                            @if($teams->isNotEmpty())
                             <li class="nav-item">
                                 <a class="nav-link" href="#eksperts">Eksperci</a>
                             </li>
+                            @endif
+
+                            @if($tiles->isNotEmpty())
                             <li class="nav-item">
                                 <a class="nav-link" href="#spec">Specjalizacje</a>
                             </li>
+                            @endif
                             <li class="nav-item">
                                 <a class="nav-link" href="#contactform">Kontakt</a>
                             </li>
