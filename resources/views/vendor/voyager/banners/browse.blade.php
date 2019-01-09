@@ -93,8 +93,9 @@
 
                                     <td>
                                         @if($row->type == 'image')
+                                            @if($data->{$row->field})
                                         <img src="@if( !filter_var($data->{$row->field}, FILTER_VALIDATE_URL)){{ Voyager::image( $data->{$row->field} ) }}@else{{ $data->{$row->field} }}@endif"
-                                            style="width:100px"> @elseif($row->type ==
+                                            style="width:100px"> @else <div style="display: flex;flex-direction: column;text-align: center;width: 60%;"><span style="color: red;">brak zdjecia</span> <span>baner nie zostanie wyświetlony</span></div>@endif @elseif($row->type ==
                                         'relationship')
     @include('voyager::formfields.relationship', ['view' => 'browse','options'
                                         => $row->details]) @elseif($row->type == 'select_multiple') @if(property_exists($row->details,

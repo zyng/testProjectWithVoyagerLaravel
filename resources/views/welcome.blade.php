@@ -841,14 +841,12 @@
 
                         var image = {
                             size: new google.maps.Size(64, 64),
-                            url: icon,
-
-                         
+                            url: icon,   
                         }
                         marker = new google.maps.Marker({   
                             position: map.getCenter(),
                             animation: google.maps.Animation.BOUNCE,
-                            icon: image ,
+                            icon: image,
                             map: map
                         });
 
