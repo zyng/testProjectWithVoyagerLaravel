@@ -46,6 +46,8 @@
     <!--Responsive Css-->
     <link rel="stylesheet" href="assets/css/responsive.css">
     <link rel="stylesheet" href="css/fontawesome.css">
+    <link rel="stylesheet" href="style.css">
+
     <!--Modernizr Css-->
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
@@ -72,6 +74,7 @@
     <div class="main-container">
 
         <!-- /.header start -->
+        {{--
         <header class="header fixed-top">
             <nav class="navbar navbar-expand-lg navbar-dark">
                 <div class="container">
@@ -112,6 +115,41 @@
                                 </a>
                             </li>
 
+
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header> --}}
+
+        <header class="header fixed-top">
+            <nav class="navbar navbar-expand-lg navbar-dark">
+                <div class="container">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="{{ route('page.index' )}}"><img src="assets/images/logo/logo.png"  alt="BEFIT logo"></a>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                    </div>
+                    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active">
+                                <a class="nav-link " href="{{ route('page.index' )}}">Strona główna</a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#kons">Konsultacje</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#eksperts">Eksperci</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#spec">Specjalizacje</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#contactform">Kontakt</a>
+                            </li>
 
                         </ul>
                     </div>
@@ -314,7 +352,7 @@
         </div>
         <!--call to action end-->
         <!--contact-area start-->
-        <div class="contact-area pad90" id="formSend">
+        <div class="contact-area pad90" id="contactform">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -333,7 +371,7 @@
                     <div class="col-md-8">
                         <div class="contact-form mt20">
                             <div class="appointment-schedule">
-                                @if (count($errors) > 0)
+                                {{-- @if (count($errors) > 0)
                                 <div class="alert alert-danger">
                                     <button type="button" class="close" data-dismiss="alert">×</button>
                                     <ul class="error-area">
@@ -348,10 +386,11 @@
                                     <button type="button" class="close" data-dismiss="alert">×</button>
                                     <strong>{{ $message }}</strong>
                                 </div>
-                                @endif
-                                <ul style="color: #000;" id="error-area"></ul>
-                                <form method="post" action="{{ action('SendEmailController@send') }}" id="contact-form" data-toggle="validator" role="form"
-                                    class="appointment-form">
+                                @endif --}}
+                                <ul id="error-area"></ul>
+                                <iframe src="" name="votar" style="display: none;"></iframe>
+                                <form method="post" action="{{ action('SendEmailController@send') }}" target="votar" id="contact-form" data-toggle="validator"
+                                    role="form" class="appointment-form">
                                     {{ csrf_field() }}
                                     <div class="row">
                                         <div class="col-md-12">
@@ -851,6 +890,7 @@
                 var valid = true;
                 
                 $(errorBox).empty();
+                $(errorBox).removeClass();
 
                 var email = $("#inputEmail").val();
 
@@ -893,12 +933,25 @@
 
 
 
-                if(valid) {
+
+                if(!valid) {
+                    console.log('1');
+                    $(errorBox).addClass('error-message');
                     return true;
                 } else {
-                    e.preventDefault();
+                    console.log('2');
+                    const li = document.createElement('li');
+                    li.textContent = "Wysłano maila";
+                    $(errorBox).addClass('success-message');
+                    $(errorBox).append(li);
+                    
                 }
 
+                // setTimeout(function(){
+                //     $('#contact-form input').val('');
+                //     $('#contact-form textarea').val('');
+                // },1000)
+                
                 
             })
 

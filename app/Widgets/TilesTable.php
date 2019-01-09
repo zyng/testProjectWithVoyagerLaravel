@@ -6,9 +6,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 use TCG\Voyager\Facades\Voyager;
 use TCG\Voyager\Widgets\BaseDimmer;
-use App\Banner;
+use App\Tile;
 
-class BannersTable extends BaseDimmer
+class TilesTable extends BaseDimmer
 {
     /**
      * The configuration array.
@@ -23,16 +23,16 @@ class BannersTable extends BaseDimmer
      */
     public function run()
     {
-        $count = Banner::count();
-        $string = "Banery";
+        $count = Tile::count();
+        $string = "Kafle";
 
         return view('voyager::dimmer', array_merge($this->config, [
-            'icon'   => 'voyager-images',
+            'icon'   => 'voyager-lightbulb',
             'title'  => "{$count} {$string}",
-            'text'   => "Zobacz wszystkie banery",
+            'text'   => "Zobacz wszystkie kafle",
             'button' => [
                 'text' => "Przejdź",
-                'link' => route('voyager.banners.index'),
+                'link' => route('voyager.tiles.index'),
             ],
             'image' => voyager_asset('images/widget-backgrounds/01.jpg'),
         ]));

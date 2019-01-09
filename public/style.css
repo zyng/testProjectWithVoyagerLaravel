@@ -1,0 +1,19 @@
+html {
+    scroll-behavior: smooth;
+}
+
+#error-area {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 700;
+}
+
+#error-area.success-message {
+    background-color: mediumspringgreen;
+}
+
+#error-area.error-message {
+    background-color: orangered;
+}
