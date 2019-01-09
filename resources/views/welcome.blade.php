@@ -317,7 +317,7 @@
                         <div class="features-body" style="transform: none;">
 
                             @foreach($tiles->chunk(2) as $tile)
-                            <div class="features-box text-center">
+                            <div class="features-box text-center" style="width: 33.33%">
                                 @foreach($tile as $single)
                                 <div class="features-elements">
                                     <a href="#"><i class="{{ $single->icon ? $single->icon : "fas fa-question" }}"></i></a>
