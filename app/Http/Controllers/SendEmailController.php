@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Mail\Contact;
 use Illuminate\Support\Facades\Mail;
+use App\Rules\Captcha;
 
 class SendEmailController extends Controller
 {
@@ -19,12 +20,14 @@ class SendEmailController extends Controller
             'email.email' => 'To nie jest poprawny adres e-mail!'
         ];
 
+       
         $request->validate([
             'name' => 'required',
             'email' => 'required|email',
             'subject' => 'required',
             'phone' => 'required',
-            'message' => 'required'
+            'message' => 'required',
+            'g-recaptcha-response' => new Captcha(),
         ], $messages);
 
         $name = $request->name;
@@ -32,6 +35,7 @@ class SendEmailController extends Controller
         $subject = $request->subject;
         $phone = $request->phone;
         $message = $request->message;
+        
 
 
         // Mail::to(config('app.mail_to_address'))->send(new Contact($subject, $phone, $message, $name, $email));

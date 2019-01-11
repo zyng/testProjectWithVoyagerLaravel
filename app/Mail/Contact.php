@@ -23,6 +23,7 @@ class Contact extends Mailable
         $this->message = $message;
         $this->name = $name;
         $this->email = $email;
+        // $this->recaptcha = $recaptcha;
     }
 
     /**

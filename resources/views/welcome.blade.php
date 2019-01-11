@@ -49,6 +49,7 @@
     <link rel="stylesheet" href="style.css">
 
     <!--Modernizr Css-->
+    <script src='https://www.google.com/recaptcha/api.js'></script>
     <script src="assets/js/vendor/modernizr-2.8.3.min.js"></script>
 
 
@@ -361,7 +362,7 @@
         </div>
         <!--call to action end-->
         <!--contact-area start-->
-        <div class="contact-area pad90" id="contactform">
+        <div class="contact-area pad90" id="formSend">
             <div class="container">
                 <div class="row">
                     <div class="col-md-12">
@@ -396,9 +397,16 @@
                                     <strong>{{ $message }}</strong>
                                 </div>
                                 @endif --}}
+                                @if ($message = Session::get('success'))
+
+                                <div class="alert alert-success alert-block">
+                                    <button type="button" class="close" data-dismiss="alert">×</button>
+                                    <strong>{{ $message }}</strong>
+                                </div>
+                                @endif
                                 <ul id="error-area"></ul>
-                                <iframe src="" name="votar" style="display: none;"></iframe>
-                                <form method="post" action="{{ action('SendEmailController@send') }}" target="votar" id="contact-form" data-toggle="validator"
+                                {{-- <iframe src="" name="votar" style="display: none;"></iframe> --}}
+                                <form method="post" action="{{ action('SendEmailController@send') }}" id="contact-form" data-toggle="validator"
                                     role="form" class="appointment-form">
                                     {{ csrf_field() }}
                                     <div class="row">
@@ -443,6 +451,21 @@
                                             </div>
                                         </div>
                                     </div>
+                                    
+                                    <div class="row">
+                                            
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                               
+                                                <div class="g-recaptcha" data-sitekey="{{config('app.envCaptchaKey')}}"></div>
+                                             {{-- @if($errors->has('g-recaptcha-response')) --}}
+                                                <span class="invalid-feedback" style="display: block;">
+                                                <span id="captcha">{{-- {{$errors->first('g-recaptcha-response')}} --}}</span>
+                                                </span>
+                                             {{-- @endif --}}
+                                            </div>
+                                        </div>
+                                    </div>
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="bttn full-width">
@@ -451,6 +474,7 @@
                                         </div>
                                         <!-- /.col -->
                                     </div>
+                                
                                     <!-- /.row -->
                                     <div class="row">
                                         <div class="col-md-12">
@@ -879,7 +903,23 @@
     <script>
         $(document).ready(function(){
 
-            
+            function get_action() 
+            {
+                var v = grecaptcha.getResponse();
+
+                if(v.length == 0)
+                {
+                    console.log(document.getElementById('captcha'));
+                    document.getElementById('captcha').innerHTML="You can't leave Captcha Code empty";
+                    
+                    return "invalid";
+                }
+                else
+                {
+                    document.getElementById('captcha').innerHTML="Captcha completed";
+                    return "valid"; 
+                }
+            }
 
             var btnForm = $('#submitForm');
             function isValidEmailAddress(emailAddress) {
@@ -893,12 +933,21 @@
             $(btnForm).click(function(e){
 
                 var valid = true;
-                
+                var captcha = get_action();
+                console.log(captcha);
+
                 $(errorBox).empty();
                 $(errorBox).removeClass();
 
                 var email = $("#inputEmail").val();
+                var response = grecaptcha.getResponse();
+                console.log(response);
 
+                if (captcha === "invalid") {
+                    valid = false;
+                } else {
+                    valid = true;
+                }
                 if($("#inputName").val() === "" || $("#inputEmail").val() === "" || $("#inputSubject").val() === "" || $("#inputPhone").val() === "" || $("#inputMessage").val() === "" || !isValidEmailAddress(email)) {
                     valid = false; 
                 }
@@ -906,6 +955,7 @@
                 let errorMessage = '';
                 if($("#inputName").val() === "") {
                     errorMessage = $("#inputName").data('error-message');
+                    $(errorBox).addClass('error-message');
                     const li = document.createElement('li');
                     li.textContent = errorMessage;
                     console.log(li);
@@ -913,24 +963,28 @@
                 }
                 if($("#inputEmail").val() === "" || !isValidEmailAddress(email)) {
                     errorMessage = $("#inputEmail").data('error-message');
+                    $(errorBox).addClass('error-message');
                     const li = document.createElement('li');
                     li.textContent = errorMessage;
                     $(errorBox).append(li);
                 }
                 if($("#inputSubject").val() === "") {
                     errorMessage = $("#inputSubject").data('error-message');
+                    $(errorBox).addClass('error-message');
                     const li = document.createElement('li');
                     li.textContent = errorMessage;
                     $(errorBox).append(li);
                 }
                 if($("#inputPhone").val() === "") {
                     errorMessage = $("#inputPhone").data('error-message');
+                    $(errorBox).addClass('error-message');
                     const li = document.createElement('li');
                     li.textContent = errorMessage;
                     $(errorBox).append(li);
                 }
                 if($("#inputMessage").val() === "") {
                     errorMessage = $("#inputMessage").data('error-message');
+                    $(errorBox).addClass('error-message');
                     const li = document.createElement('li');
                     li.textContent = errorMessage;
                     $(errorBox).append(li);
@@ -939,16 +993,14 @@
 
 
 
-                if(!valid) {
-                    console.log('1');
-                    $(errorBox).addClass('error-message');
-                    return true;
+                if(!valid) {  
+                    return false;
                 } else {
-                    console.log('2');
-                    const li = document.createElement('li');
-                    li.textContent = "Wysłano maila";
-                    $(errorBox).addClass('success-message');
-                    $(errorBox).append(li);
+                    // console.log('2');
+                    // const li = document.createElement('li');
+                    // li.textContent = "Wysłano maila";
+                    // $(errorBox).addClass('success-message');
+                    // $(errorBox).append(li);
                     
                 }
 
