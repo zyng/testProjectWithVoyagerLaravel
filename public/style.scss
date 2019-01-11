@@ -14,11 +14,11 @@ html {
     font-weight: 700;
 
     &.success-message {
-        background-color: mediumspringgreen;
+        background-color: #21DC5A;
     }
 
     &.error-message {
-        background-color: orangered;
+        background-color: #F9263F;
     }
 }
 
@@ -108,3 +108,10 @@ html {
 #scrollUp {
     display: none !important;
 }
+
+#captcha {
+    &.success {
+        color: #21DC5A;
+    }
+}
+

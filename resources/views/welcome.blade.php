@@ -398,6 +398,7 @@
                                     <strong>{{ $message }}</strong>
                                 </div>
                                 @endif
+                                
                                 <ul id="error-area"></ul>
                                 {{-- <iframe src="" name="votar" style="display: none;"></iframe> --}}
                                 <form method="post" action="{{ action('SendEmailController@send') }}" id="contact-form" data-toggle="validator"
@@ -905,17 +906,17 @@
             function get_action() 
             {
                 var v = grecaptcha.getResponse();
-
+                var captcha = document.getElementById('captcha');
                 if(v.length == 0)
                 {
-                    console.log(document.getElementById('captcha'));
-                    document.getElementById('captcha').innerHTML="You can't leave Captcha Code empty";
+                    captcha.innerHTML="You can't leave Captcha Code empty";
                     
                     return "invalid";
                 }
                 else
                 {
-                    document.getElementById('captcha').innerHTML="Captcha completed";
+                    captcha.innerHTML="Captcha completed";
+                    captcha.className = "success";
                     return "valid"; 
                 }
             }
