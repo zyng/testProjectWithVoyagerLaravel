@@ -115,3 +115,9 @@ html {
     }
 }
 
+.features-area .features-body .features-box .features-elements a i:before {
+    color: #6b6b6b;
+}
+.features-elements:hover a i:before {
+    color: $mainColor !important;
+}
