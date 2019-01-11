@@ -74,7 +74,7 @@
                                         <a href="{{ $row->sortByUrl($orderBy, $sortOrder) }}">
                                             @endif
                                             
-                                            {{ $row->display_name }}
+                                            {{ $row->display_name }} @if($row->display_name === "Opublikowane") <span @if($activeTiles === 6) style="color: red; font-weight: 700;" @else style="color: green;font-weight: 700" @endif>({{$activeTiles}})</span> @endif
                                             @if ($isServerSide)
                                                 @if ($row->isCurrentSortField($orderBy))
                                                     @if ($sortOrder == 'asc')

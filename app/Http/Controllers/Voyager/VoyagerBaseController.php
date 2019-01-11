@@ -31,6 +31,7 @@ class VoyagerBaseController extends BaseVoyagerBaseController
 
     public function index(Request $request)
     {
+    
         // GET THE SLUG, ex. 'posts', 'pages', etc.
         $slug = $this->getSlug($request);
 
