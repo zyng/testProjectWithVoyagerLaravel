@@ -63,12 +63,12 @@
 <body>
 
     <!--preloader-->
-    <div class="preloader">
+{{--     <div class="preloader">
         <div class="ball ball-1">
         </div>
         <div class="ball ball-2"></div>
         <div class="ball ball-3"></div>
-    </div>
+    </div> --}}
     <!--preloader-->
 
     <!--main-container-->
@@ -154,7 +154,7 @@
                             </li>
                             @endif
                             <li class="nav-item">
-                                <a class="nav-link" href="#contactform">Kontakt</a>
+                                <a class="nav-link" href="#formSend">Kontakt</a>
                             </li>
 
                         </ul>
@@ -176,7 +176,7 @@
                         @foreach($banners as $banner) @if($banner->image)
                         <li data-index="rs-{{$loop->iteration}}" data-transition="slideoververtical">
                             <!-- MAIN IMAGE -->
-                            <img src="{{ Voyager::image($banner->image) }}" alt="" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
+                            <img src="{{ Voyager::image($banner->image) }}" alt="" class="banner__img" data-bgposition="center center" data-bgfit="cover" data-bgrepeat="no-repeat"
                                 class="rev-slidebg" data-no-retina>
 
                             <!-- LAYER NR. 1 -->
@@ -263,9 +263,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title text-center">
-                            <div class="title-bar full-width mb20">
-                                <img src="assets/images/logo/ttl-bar.png" alt="title-img">
-                            </div>
+                          
                             <h3>Nasz zespoł</h3>
                             <p>składa się z samych profesjonalistów</p>
                         </div>
@@ -306,9 +304,7 @@
             <div class="container">
                 <div class="col-md-12">
                     <div class="section-title text-center">
-                        <div class="title-bar full-width mb20">
-                            <img src="assets/images/logo/ttl-bar.png" alt="title-img">
-                        </div>
+            
                         <h3>Nasze specjalności</h3>
                         <p>szereg specjalnosci</p>
                     </div>
@@ -343,7 +339,7 @@
         <div class="call-to-action pad60">
             <div class="container">
                 @foreach($infos as $info)
-                <div class="row">
+                <div class="row shortInfo">
                     <div class="col-md-9 col-sm-12">
                         <h4 style="font-size: 20px;">{{ $info->info}}</h4>
                     </div>
@@ -367,9 +363,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-title text-left">
-                            <div class="title-bar full-width mb20">
-                                <img src="assets/images/logo/ttl-bar.png" alt="title-img">
-                            </div>
+                            
                             <h3>leave your message</h3>
                             <p>get in touch with our fitness team</p>
                         </div>
@@ -540,6 +534,11 @@
         <footer>
 
             <div class="copyright pad30">
+                <div class="socials">
+                    @if($companyInfo[0]->facebook)<a href="{{$companyInfo[0]->facebook}}"><i class="fab fa-facebook"></i></a>@endif
+                    @if($companyInfo[0]->google)<a href="{{$companyInfo[0]->google}}"><i class="fab fa-google-plus-square"></i></a>@endif
+                </div>
+                
                 <h4>Copyright © <span>iThemeslab.</span> All Rights Reserved</h4>
             </div>
         </footer>

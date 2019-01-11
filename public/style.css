@@ -1,19 +1,43 @@
-html {
-    scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
-#error-area {
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-    color: #fff;
-    font-weight: 700;
-}
+#error-area { padding: 10px; border-radius: 10px; margin-bottom: 10px; color: #fff; font-weight: 700; }
 
-#error-area.success-message {
-    background-color: mediumspringgreen;
-}
+#error-area.success-message { background-color: mediumspringgreen; }
 
-#error-area.error-message {
-    background-color: orangered;
-}
+#error-area.error-message { background-color: orangered; }
+
+.socials { text-align: center; margin-bottom: 10px; }
+
+.socials a:hover i { color: #5636D5; }
+
+.socials i { font-size: 30px; }
+
+@media screen and (max-width: 1150px) { .slider-area1 .tp-caption.slide-text-one h1, .slider-area1 .tp-caption.slide-text-one h1 span { font-size: 5vw !important; } }
+
+@media screen and (max-width: 460px) { .slider-area1 .tp-caption.slide-text-one h1, .slider-area1 .tp-caption.slide-text-one h1 span { font-size: 6vw !important; } }
+
+@media screen and (max-width: 1150px) { .slider-area1 .tp-caption.slide-text-two h2 { font-size: 3vw !important; } }
+
+@media screen and (max-width: 460px) { .slider-area1 .tp-caption.slide-text-two h2 { font-size: 3.8vw !important; } }
+
+.product-area .product-box .cart-dtl h4 { text-align: center; }
+
+@media screen and (max-width: 767px) { .features-area .features-body .features-box { width: 100% !important; } }
+
+.shortInfo { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-pack: center; -ms-flex-pack: center; justify-content: center; -webkit-box-align: center; -ms-flex-align: center; align-items: center; }
+
+.header .navbar .navbar-nav .nav-item.active .nav-link, .bttn .btn.active, .btn-primary:not([disabled]):not(.disabled).active, .product-area .product-box .cart-box .cart-element a:hover, .call-to-action, .product-area .product-box .cart-box:hover .cart-element a:hover { background-color: #5636D5; }
+
+.header .navbar .navbar-nav .nav-item .nav-link:hover, .slider-area1 .tp-caption.slide-text-one h1 span, .slider-area1 .metis.tparrows:before, .call-to-action1 .cta-box h4.sub-title, .features-area .features-body .features-box:hover a i:before, .contact-area .location .ctc-content i, .copyright h4 span { color: #5636D5; }
+
+.form-control:hover, .form-control:focus { border-color: #5636D5; }
+
+.slider-area1 .tp-caption.rev-btn:hover { background-color: #5636D5 !important; }
+
+.product-area .product-box .cart-box:hover .cart-element a:hover { color: #fff; }
+
+.primary-overlay:before { background-color: rgba(86, 54, 213, 0.5); }
+
+.bttn .btn:hover { background-color: #fff; color: #5636D5 !important; }
+
+#scrollUp { display: none !important; }

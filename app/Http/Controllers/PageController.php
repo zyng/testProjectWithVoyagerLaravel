@@ -22,7 +22,7 @@ class PageController extends Controller
         $infos = InfoBar::all();
         $companyInfo = CompanyInfo::all();
         $workTime = WorkTime::all();
-        $tiles = Tile::all();
+        $tiles = Tile::where('isActive', true)->get();
 
         return view('welcome', compact('banners','addresses', 'consults', 'teams', 'infos','companyInfo', 'workTime', 'tiles'));
 

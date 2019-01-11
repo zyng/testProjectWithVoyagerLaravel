@@ -1,0 +1,104 @@
+@import "_variables.scss";
+@import "_mixins.scss";
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+#error-area {
+    padding: 10px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    font-weight: 700;
+
+    &.success-message {
+        background-color: mediumspringgreen;
+    }
+
+    &.error-message {
+        background-color: orangered;
+    }
+}
+
+
+.socials {
+    text-align: center;
+    margin-bottom: 10px;
+
+    a {
+        &:hover {
+            i {
+                color: $mainColor;
+            }
+        }
+    }
+    
+    i {
+        font-size: 30px;
+    }
+
+}
+
+.slider-area1 .tp-caption.slide-text-one h1, .slider-area1 .tp-caption.slide-text-one h1 span {
+    @include mQ(1150px) {
+        font-size: 5vw !important;
+    }
+    @include mQ(460px) {
+        font-size: 6vw!important;
+    } 
+
+}
+.slider-area1 .tp-caption.slide-text-two h2 {
+    @include mQ(1150px) {
+        font-size: 3vw !important;
+    }
+    @include mQ(460px) {
+        font-size: 3.8vw !important;
+    } 
+}
+
+.product-area .product-box .cart-dtl h4 {
+    text-align: center;
+}
+
+.features-area .features-body .features-box {
+    @include mQ(767px) {
+        width: 100% !important;
+    }
+}
+
+
+.shortInfo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .navbar .navbar-nav .nav-item.active .nav-link, .bttn .btn.active, .btn-primary:not([disabled]):not(.disabled).active, .product-area .product-box .cart-box .cart-element a:hover, .call-to-action, .product-area .product-box .cart-box:hover .cart-element a:hover  {
+    background-color: $mainColor;
+}
+.header .navbar .navbar-nav .nav-item .nav-link:hover, .slider-area1 .tp-caption.slide-text-one h1 span, .slider-area1 .metis.tparrows:before, .call-to-action1 .cta-box h4.sub-title, .features-area .features-body .features-box:hover a i:before, .contact-area .location .ctc-content i, .copyright h4 span {
+    color: $mainColor;
+}
+.form-control:hover, .form-control:focus {
+    border-color: $mainColor;
+}
+.slider-area1 .tp-caption.rev-btn:hover {
+    background-color: $mainColor !important;
+}
+.product-area .product-box .cart-box:hover .cart-element a:hover {
+    color: #fff;
+}
+
+.primary-overlay:before {
+    background-color: rgba($mainColor, .5);
+}
+.bttn .btn:hover {
+    background-color: #fff;
+    color: $mainColor !important;
+}
+#scrollUp {
+    display: none !important;
+}
