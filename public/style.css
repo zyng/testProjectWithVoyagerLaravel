@@ -40,4 +40,8 @@ html { scroll-behavior: smooth; }
 
 .bttn .btn:hover { background-color: #fff; color: #5636D5 !important; }
 
+.features-area .features-body .features-box .features-elements { height: 350px; }
+
+.features-area .features-body .features-box .features-elements a { height: 80px; }
+
 #scrollUp { display: none !important; }

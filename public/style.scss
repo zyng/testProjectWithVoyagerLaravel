@@ -99,6 +99,12 @@ html {
     background-color: #fff;
     color: $mainColor !important;
 }
+.features-area .features-body .features-box .features-elements {
+    height: 350px;
+}
+.features-area .features-body .features-box .features-elements a {
+    height: 80px;;
+}
 #scrollUp {
     display: none !important;
 }
